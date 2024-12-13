@@ -471,6 +471,7 @@ img {
 
 .under-link {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 100%;
   border-radius: 50%;
@@ -480,6 +481,11 @@ img {
 
 .icons-under {
   fill: #f4f4fd;
+}
+
+.under-link:hover,
+.under-link:focus {
+  background-color: #31d0aa;
 }
 
 /* !!! */
