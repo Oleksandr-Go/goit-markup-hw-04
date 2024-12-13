@@ -59,7 +59,6 @@ img {
   letter-spacing: 0.03em;
   font-family: "Raleway", sans-serif;
   width: 115px;
-  padding: 24px 0;
   margin-right: 76px;
 }
 
@@ -79,6 +78,23 @@ img {
   letter-spacing: 0.02em;
   color: #2e2f42;
   padding: 24px 0;
+  display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link.current {
+  position: relative;
+}
+
+.nav-link.current::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  background-color: #404bbf;
+  border-radius: 2px;
 }
 /* !!! */
 
@@ -98,12 +114,14 @@ img {
   font-size: 16px;
   letter-spacing: 0.02em;
   color: #434455;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
 .contact-link:hover,
 .nav-link:focus,
-.contact-link:focus {
+.contact-link:focus,
+.nav-link.current {
   color: #404bbf;
 }
 /* !!! */
@@ -118,10 +136,12 @@ img {
     url(../images/people-office.jpg);
 
   background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
   padding: 188px 0;
-  max-width: 1440px;
   margin-right: auto;
   margin-left: auto;
+  max-width: 1440px;
 }
 
 .main-page-title {
@@ -153,6 +173,7 @@ img {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   margin-right: auto;
   margin-left: auto;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-button:hover,
@@ -187,6 +208,21 @@ img {
 .page-list {
   width: 264px;
   width: calc((100% - 72px) / 4);
+}
+
+.advantages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 264px;
+  background-color: #f4f4fd;
+  margin-bottom: 8px;
+}
+
+.advantages-icons {
+  margin: 24px 0;
 }
 
 .page-title {
@@ -258,6 +294,36 @@ img {
   text-align: center;
   color: #434455;
 }
+
+.team-item {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.team-list {
+  width: 40px;
+  height: 40px;
+}
+
+.team-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-icons {
+  fill: #f4f4fd;
+}
+
+.team-link:hover,
+.team-link:focus {
+  background-color: #404bbf;
+}
 /* !!! */
 
 /* секція портфоліо */
@@ -288,6 +354,32 @@ img {
   width: calc((100% - 48px) / 3);
 }
 
+.overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding: 40px 32px;
+  background-color: #4d5ae5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portf-list:hover .overlay-text {
+  transform: translateY(0);
+}
+
 .cont-border {
   border-bottom: 1px solid #e7e9fc;
   border-left: 1px solid #e7e9fc;
@@ -310,12 +402,28 @@ img {
   letter-spacing: 0.02em;
   color: #434455;
 }
+
+.portf-list:hover,
+.portf-list:focus {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
 /* !!! */
 
 /* підвал сторінки */
 .under {
   background-color: #2e2f42;
   padding: 100px 0;
+}
+
+.under .container {
+  display: flex;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 120px;
 }
 
 .logo-under {
@@ -327,7 +435,6 @@ img {
   line-height: 1.17;
   letter-spacing: 0.03em;
   font-family: "Raleway", sans-serif;
-  display: inline-block;
   width: 115px;
   margin-bottom: 16px;
 }
@@ -342,4 +449,37 @@ img {
   color: #f4f4fd;
   width: 264px;
 }
+
+.social-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.under-item {
+  display: flex;
+  gap: 16px;
+}
+
+.under-list {
+  width: 40px;
+  height: 40px;
+}
+
+.under-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icons-under {
+  fill: #f4f4fd;
+}
+
 /* !!! */
